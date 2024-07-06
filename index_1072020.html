@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=10" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="icon" type="image/jpg" href="logo1.png" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <!--link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"-->
+  <link rel="stylesheet" href="../BS4/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
+  <title>Broker Check Tool</title>
+	<style>
+		#modal {
+    display: none;
+    border-radius:20px;
+    z-index: 1002;
+    text-align:center;
+    overflow: auto;
+    position: fixed;
+		top: 50%;
+		display: block;
+    margin-top: auto;
+    margin-left: auto;
+		}
+#fade {
+    display: none;
+    position:fixed;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+    background-color: #ababab;
+    z-index: 1001;
+    -moz-opacity: 0.8;
+    opacity: .70;
+    filter: alpha(opacity=80);
+}
+
+	</style>
+</head>
+<body>
+  <div class="container-fluid">
+			<nav class="navbar navbar-expand-sm navbar-dark" style="background-color:#5a585b">
+				<a class="navbar-brand" href="#"><img src="/opt/hpws/apache/cgi-bin/Tools/BROKERCHECKTOOL" class="img-thumbnail" alt="logo" style="width:90px;">&nbsp;&nbsp;<span style="font-size:25px;"><strong>BROKER STATUS PAGE</strong></span></a>
+				<!-- Toggler/collapsibe Button -->
+			  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    				<span class="navbar-toggler-icon"></span>
+  			</button>
+		</nav>
+ </div>
+<!--navbar ends here-->
+<br><br>
+	<div class="container-fluid">
+
+	<div class="card" style="background-color:#ffffff"><div class="card-header" style="background-color:">
+
+		<ul class="nav nav-tabs" id="myTab" role="tablist">
+	  	<li class="nav-item">
+    		<a class="nav-link active" id="vlddt002-tab" data-toggle="tab" href="#vlddt002" role="tab" aria-controls="home" aria-selected="true">VLDDT002</a>
+  		</li>
+  		<li class="nav-item" id="d003" onClick="reply_click(this.id)">
+    		<a class="nav-link" id="vlddt003-tab" data-toggle="tab" href="#vlddt003" role="tab" aria-controls="profile" aria-selected="false">VLDDT003</a>
+ 	 		</li>
+  		<li class="nav-item" id="o002" onClick="reply_click(this.id)">
+    		<a class="nav-link" id="vlodt002-tab" data-toggle="tab" href="#vlodt002" role="tab" aria-controls="contact" aria-selected="false">VLODT002</a>
+  		</li>
+  		<li class="nav-item" id="o003" onClick="reply_click(this.id)">
+    		<a class="nav-link" id="vlodt003-tab" data-toggle="tab" href="#vlodt003" role="tab" aria-controls="contact" aria-selected="false">VLODT003</a>
+  		</li>
+  		<li class="nav-item" id="m001" onClick="reply_click(this.id)">
+    		<a class="nav-link" id="vlmdt001-tab" data-toggle="tab" href="#vlmdt001" role="tab" aria-controls="contact" aria-selected="false">VLMDT001</a>
+  		</li>
+  		<li class="nav-item" id="m002" onClick="reply_click(this.id)">
+    		<a class="nav-link" id="vlmdt002-tab" data-toggle="tab" href="#vlmdt002" role="tab" aria-controls="contact" aria-selected="false">VLMDT002</a>
+  		</li>
+		</ul>
+		<div class="tab-content" id="myTabContent">
+  		<div class="tab-pane fade show active" id="vlddt002" role="tabpanel" aria-labelledby="vlddt002-tab">
+					<div id="ddt002"><br>Loading...</div>
+			</div>
+  		<div class="tab-pane fade" id="vlddt003" role="tabpanel" aria-labelledby="vlddt003-tab">
+					<div id="ddt003"><br>Loading...
+						<div class=' mx-auto d-block'>
+    					<div id="" style="background:white;border-radius:20px;z-index: 1002;text-align:center;overflow: auto;position: fixed;top: 50%;display: block;margin-top: auto;margin-left: auto;left:50%;">
+          <img id="loader" src="https://loading.io/spinners/double-ring/lg.double-ring-spinner.gif" style="width:60px;height:60px;class="mx-auto d-block""/>
+    					</div>
+						</div>
+
+					</div>
+			</div>
+  		<div class="tab-pane fade" id="vlodt002" role="tabpanel" aria-labelledby="vlodt002-tab">
+				<div id="odt002"><br>Loading...
+						<div class=' mx-auto d-block'>
+    					<div id="" style="background:white;border-radius:20px;z-index: 1002;text-align:center;overflow: auto;position: fixed;top: 50%;display: block;margin-top: auto;margin-left: auto;left:50%;">
+          <img id="loader" src="https://loading.io/spinners/double-ring/lg.double-ring-spinner.gif" style="width:60px;height:60px;class="mx-auto d-block""/>
+    					</div>
+						</div>
+	
+					</div>
+			</div>
+  		<div class="tab-pane fade" id="vlodt003" role="tabpanel" aria-labelledby="vlodt003-tab">
+			
+				<div id="odt003"><br>Loading...
+						<div class=' mx-auto d-block'>
+    					<div id="" style="background:white;border-radius:20px;z-index: 1002;text-align:center;overflow: auto;position: fixed;top: 50%;display: block;margin-top: auto;margin-left: auto;left:50%;">
+          <img id="loader" src="https://loading.io/spinners/double-ring/lg.double-ring-spinner.gif" style="width:60px;height:60px;class="mx-auto d-block""/>
+    					</div>
+						</div>
+						</div>
+</div>
+  		<div class="tab-pane fade" id="vlmdt001" role="tabpanel" aria-labelledby="vlmdt001-tab">
+        <div id="mdt001"><br>Loading...
+            <div class=' mx-auto d-block'>
+              <div id="" style="background:white;border-radius:20px;z-index: 1002;text-align:center;overflow: auto;position: fixed;top: 50%;display: block;margin-top: auto;margin-left: auto;left:50%;">
+          <img id="loader" src="https://loading.io/spinners/double-ring/lg.double-ring-spinner.gif" style="width:60px;height:60px;class="mx-auto d-block""/>
+              </div>
+            </div>
+            </div>
+</div>
+  		<div class="tab-pane fade" id="vlmdt002" role="tabpanel" aria-labelledby="vlmdt002-tab">
+<div id="mdt002"><br>Loading...
+            <div class=' mx-auto d-block'>
+              <div id="" style="background:white;border-radius:20px;z-index: 1002;text-align:center;overflow: auto;position: fixed;top: 50%;display: block;margin-top: auto;margin-left: auto;left:50%;">
+          <img id="loader" src="https://loading.io/spinners/double-ring/lg.double-ring-spinner.gif" style="width:60px;height:60px;class="mx-auto d-block""/>
+              </div>
+            </div>
+            </div>
+
+
+</div>
+		</div>
+	</div>
+
+<div class=' mx-auto d-block'>
+    <div id="fade"></div>
+    <div id="modal" style="background:white">
+          <img id="loader" src="https://loading.io/spinners/double-ring/lg.double-ring-spinner.gif" style="width:60px;height:60px;"/>
+    </div>
+</div></div>
+</div>
+
+
+<script type="text/javascript">
+
+$(function()
+      {
+        openModal();
+        var z = Math.random();
+  $("#ddt002").load("mbbrokerstatus.cgi?server="+"vlddt002.test.intranet"+"&Z="+z, function(responseText, statusText, xhr)
+  {
+    if(statusText == "error")
+      alert("An error occurred: " + xhr.status + " - " + xhr.statusText);
+        closeModal();
+  });
+});
+
+
+function openModal() {
+        document.getElementById('modal').style.display = 'block';
+        document.getElementById('fade').style.display = 'block';
+}
+
+function closeModal() {
+    document.getElementById('modal').style.display = 'none';
+    document.getElementById('fade').style.display = 'none';
+}
+
+function reply_click(clicked_id)
+{
+    if(clicked_id == "o002"){
+       var z = Math.random();
+       $("#odt002").load("mbbrokerstatus.cgi?server="+"vlodt002.test.intranet"+"&Z="+z, function(responseText, statusText, xhr)
+  {
+    if(statusText == "error")
+      alert("An error occurred: " + xhr.status + " - " + xhr.statusText);
+  });
+
+    }
+    else if(clicked_id == "d003"){
+       var z = Math.random();
+       $("#ddt003").load("mbbrokerstatus.cgi?server="+"vlddt003.test.intranet"+"&Z="+z, function(responseText, statusText, xhr)
+  {
+    if(statusText == "error")
+      alert("An error occurred: " + xhr.status + " - " + xhr.statusText);
+  });
+    }
+    else if(clicked_id == "o002"){
+       var z = Math.random();
+       $("#odt002").load("mbbrokerstatus.cgi?server="+"vlodt002.test.intranet"+"&Z="+z, function(responseText, statusText, xhr)
+  {
+    if(statusText == "error")
+      alert("An error occurred: " + xhr.status + " - " + xhr.statusText);
+  });
+    }
+    else if(clicked_id == "o003"){
+       var z = Math.random();
+       $("#odt003").load("mbbrokerstatus.cgi?server="+"vlodt003.test.intranet"+"&Z="+z, function(responseText, statusText, xhr)
+  {
+    if(statusText == "error")
+      alert("An error occurred: " + xhr.status + " - " + xhr.statusText);
+  });
+    }
+    else if(clicked_id == "m001"){
+       var z = Math.random();
+       $("#mdt001").load("mbbrokerstatus.cgi?server="+"vlmdt001.test.intranet"+"&Z="+z, function(responseText, statusText, xhr)
+  {
+    if(statusText == "error")
+      alert("An error occurred: " + xhr.status + " - " + xhr.statusText);
+  });
+    }
+    else if(clicked_id == "m002"){
+       var z = Math.random();
+       $("#mdt002").load("mbbrokerstatus.cgi?server="+"vlmdt002.test.intranet"+"&Z="+z, function(responseText, statusText, xhr)
+  {
+    if(statusText == "error")
+      alert("An error occurred: " + xhr.status + " - " + xhr.statusText);
+  });
+    }
+   else{
+       alert("oops");
+    }
+}
+</script>
+
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+  <!--script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script-->
+  <script src="../BS4/js/bootstrap.min.js"></script>
+  <!--script src="mbbrokerstatus.js"></script-->
+</body>
+</html>
+
